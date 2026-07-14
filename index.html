@@ -3,23 +3,27 @@
 <title>Italy 2026</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Italy 2026">
 <meta name="theme-color" content="#7a2e2e">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Crect width='180' height='180' rx='40' fill='%23faf6ee'/%3E%3Crect x='30' y='45' width='40' height='90' fill='%23008C45'/%3E%3Crect x='70' y='45' width='40' height='90' fill='%23ffffff'/%3E%3Crect x='110' y='45' width='40' height='90' fill='%23CD212A'/%3E%3C/svg%3E">
 <style>
 :root{color-scheme:light}
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:#7a2e2e;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#5e2323;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
 .app{display:flex;flex-direction:column;height:100vh;height:100dvh}
-header{color:#faf6ee;text-align:center;padding:calc(env(safe-area-inset-top) + 8px) 8px 8px;font-weight:800;letter-spacing:.5px;font-size:1rem}
+nav{display:flex;background:#5e2323;padding-top:env(safe-area-inset-top);flex:0 0 auto;box-shadow:0 2px 6px rgba(0,0,0,.25);z-index:2}
+.tab{flex:1;background:none;border:0;border-bottom:3px solid transparent;color:#e6c9c9;font-weight:700;padding:7px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer;min-width:0}
+.tab .e{font-size:1.05rem;line-height:1.15}
+.tab .l{font-size:.64rem;letter-spacing:.2px}
+.tab.active{color:#fff;border-bottom-color:#fff;background:rgba(255,255,255,.06)}
+.tab:not(.active){opacity:.8}
 .panes{flex:1;position:relative;background:#faf6ee;min-height:0}
 .pane{position:absolute;inset:0;width:100%;height:100%;border:0;display:none;background:#faf6ee}
 .pane.active{display:block}
-nav{display:flex;background:#5e2323;padding-bottom:env(safe-area-inset-bottom)}
-.tab{flex:1;background:none;border:0;color:#e9c9c9;font-weight:700;padding:8px 2px 10px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;font-size:1.15rem}
-.tab span{font-size:.66rem}.tab.active{color:#fff}.tab:not(.active){opacity:.75}
 </style></head><body>
 <div class="app">
-<header>🇮🇹 ITALY 2026 · Matt &amp; Elizabeth</header>
+<nav><button class="tab active" onclick="show(0)"><span class="e">🗺️</span><span class="l">Trip</span></button><button class="tab" onclick="show(1)"><span class="e">📖</span><span class="l">Guide</span></button><button class="tab" onclick="show(2)"><span class="e">✅</span><span class="l">Checklist</span></button><button class="tab" onclick="show(3)"><span class="e">🎟️</span><span class="l">Confirm</span></button></nav>
 <div class="panes"><iframe class="pane active" id="p0" srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -1457,7 +1461,6 @@ h2{font-size:1.05rem;margin:20px 0 8px;padding-bottom:4px;border-bottom:2px soli
 &lt;p class=&quot;foot&quot;&gt;Compiled Jul 12, 2026 · works offline · 🇮🇹&lt;/p&gt;
 &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
 " loading="lazy"></iframe></div>
-<nav><button class="tab active" onclick="show(0)">🗺️<span>Trip</span></button><button class="tab" onclick="show(1)">📖<span>Day Guide</span></button><button class="tab" onclick="show(2)">✅<span>Checklist</span></button><button class="tab" onclick="show(3)">🎟️<span>Confirmations</span></button></nav>
 </div>
 <script>
 function show(n){document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
